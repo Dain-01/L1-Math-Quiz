@@ -134,6 +134,7 @@ while rounds_played < num_rounds:
 
     # if user choice is exit code, break loop
     if user_answer == "xxx":
+        print("\nyou left")
         break
 
     try:
@@ -157,9 +158,14 @@ while rounds_played < num_rounds:
     if mode == "infinite":
         num_rounds += 1
 
-# Display stats
-print("\n--- Stats ---")
-print(f"Correct: {correct}")
-print(f"Incorrect: {incorrect}")
-print(f"Total Questions: {correct + incorrect}")
-print(f"you got {correct} / {correct + incorrect} correct.")
+# Asks if user wants to see their stats / score
+want_stats =yes_no("Do you wanna see your score/stats?")
+
+if want_stats == "yes":
+    print("\n --- Stats ---")
+    print(f"Score: {correct} / {correct + incorrect}")
+    print(f"you got {correct} out of {correct + incorrect}")
+if want_stats == "no":
+    print("Thanks for playing!")
+else:
+    print("Thanks for playing!")
