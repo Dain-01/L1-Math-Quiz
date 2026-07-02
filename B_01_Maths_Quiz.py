@@ -46,6 +46,8 @@ def instructions():
     print("""
 *** Instructions ***
 
+This is a basic facts quiz!!!
+
 Choose either a certain amount of rounds or infinite mode!
 
 Then solve the questions! 
@@ -55,7 +57,7 @@ They can range from;
 - Division
 - Subtraction
 - Addition 
-(You can also exit from Infinite mode by typing "xxx") 
+(You can also exit by typing "xxx") 
 Good luck!""")
 
 # Main Routine Starts here
@@ -70,8 +72,11 @@ correct = 0
 
 incorrect = 0
 
+# Welcome to Maths quiz heading
+print("\n😎😎😎 Welcome to Ordain's Maths Quiz! 😎😎😎")
+
 # Instructions
-want_instructions = yes_no("Do you want instructions vrochacho? ")
+want_instructions = yes_no("Do you want instructions brochacho? ")
 
 # Display the instructions if the user wants to see them . . .
 
@@ -79,7 +84,7 @@ if want_instructions == "yes":
     instructions()
 
 # Asks user for number of rounds / infinite mode
-num_rounds = int_check("How many rounds would you like? Push <enter> for infinite mode: ")
+num_rounds = int_check("\nHow many rounds would you like? Push <enter> for infinite mode: ")
 
 if num_rounds == "infinite":
     mode = "infinite"
@@ -134,13 +139,13 @@ while rounds_played < num_rounds:
 
     # if user choice is exit code, break loop
     if user_answer == "xxx":
-        print("\nyou left")
+        print("\nyou left loser")
         break
 
     try:
         user_answer = int(user_answer)
     except ValueError:
-        print("Not a number dude, skipping to the next question.")
+        print("\nNot a number dude, skipping to the next question.")
         continue
 
     # Compares user input to answer
@@ -158,14 +163,22 @@ while rounds_played < num_rounds:
     if mode == "infinite":
         num_rounds += 1
 
-# Asks if user wants to see their stats / score
-want_stats =yes_no("Do you wanna see your score/stats?")
+# Game loop ends here
 
-if want_stats == "yes":
-    print("\n --- Stats ---")
-    print(f"Score: {correct} / {correct + incorrect}")
-    print(f"you got {correct} out of {correct + incorrect}")
-if want_stats == "no":
-    print("Thanks for playing!")
+if rounds_played >0:
+
+    # Asks if user wants to see their score
+    want_stats =yes_no("\nDo you wanna see your score?")
+
+    # Depending on user input, it does or doesn't display results
+    if want_stats == "yes":
+        print("\n --- results ---")
+        print(f"Score: {correct} / {correct + incorrect}")
+        print(f"you got {correct} out of {correct + incorrect} correct")
+    if want_stats == "no":
+        print("Thanks for playing!")
+    else:
+        print("Thanks for playing!")
+
 else:
-    print("Thanks for playing!")
+    print("You left early? Didn't you want to play? Chicken 🐔")
