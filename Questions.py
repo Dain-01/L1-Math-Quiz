@@ -34,7 +34,7 @@ questions_completed = 0
 
 # Instructions
 
-# Asks user for number of rounds / infinite mode
+# Asks user for number of questions / infinite mode
 num_questions = int_check("How many questions would you like? Push <enter> for infinite mode: ")
 
 if num_questions == "infinite":
@@ -46,9 +46,9 @@ while questions_completed < num_questions:
 
     # Question heading (based on mode)
     if mode == "infinite":
-        question_heading = f"\n(❁´◡`❁) Round {questions_completed + 1} (Infinite Mode) (❁´◡`❁)"
+        question_heading = f"\n(❁´◡`❁) Question {questions_completed + 1} (Infinite Mode) (❁´◡`❁)"
     else:
-        question_heading = f"\n (●'◡'●) Round {questions_completed + 1} of {num_questions} (●'◡'●)"
+        question_heading = f"\n (●'◡'●) Question {questions_completed + 1} of {num_questions} (●'◡'●)"
 
     print(question_heading)
     print()

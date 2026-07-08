@@ -48,7 +48,7 @@ def instructions():
 
 This is a basic facts quiz!!!
 
-Choose either a certain amount of rounds or infinite mode!
+Choose either a certain amount of questions or infinite mode!
 
 Then solve the questions! 
 
@@ -97,9 +97,9 @@ while questions_completed < num_questions:
 
     # Question headings (based on mode)
     if mode == "infinite":
-        question_heading = f"\n(❁´◡`❁) Round {questions_completed + 1} (Infinite Mode) (❁´◡`❁)"
+        question_heading = f"\n(❁´◡`❁) Question {questions_completed + 1} (Infinite Mode) (❁´◡`❁)"
     else:
-        question_heading = f"\n (●'◡'●) Round {questions_completed + 1} of {num_questions} (●'◡'●)"
+        question_heading = f"\n (●'◡'●) Question {questions_completed + 1} of {num_questions} (●'◡'●)"
 
     print(question_heading)
     print()
