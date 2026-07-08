@@ -32,4 +32,3 @@ if sign == "*":
 
 print(f" {one} {sign} {two} = {total} ")
 
-

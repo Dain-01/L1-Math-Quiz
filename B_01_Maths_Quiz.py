@@ -64,13 +64,15 @@ Good luck!""")
 
 # Initialize game variables
 mode = "regular"
-rounds_played = 0
+questions_completed = 0
 
 answer = 0
 
 correct = 0
 
 incorrect = 0
+
+quiz_history = []
 
 # Welcome to Maths quiz heading
 print("\n😎😎😎 Welcome to Ordain's Maths Quiz! 😎😎😎")
@@ -83,23 +85,23 @@ want_instructions = yes_no("Do you want instructions brochacho? ")
 if want_instructions == "yes":
     instructions()
 
-# Asks user for number of rounds / infinite mode
-num_rounds = int_check("\nHow many rounds would you like? Push <enter> for infinite mode: ")
+# Asks user for number of questions / infinite mode
+num_questions = int_check("\nHow many questions would you like? Push <enter> for infinite mode: ")
 
-if num_rounds == "infinite":
+if num_questions == "infinite":
     mode = "infinite"
-    num_rounds = 5
+    num_questions = 5
 
 # Game loop starts here
-while rounds_played < num_rounds:
+while questions_completed < num_questions:
 
-    # Rounds headings (based on mode)
+    # Question headings (based on mode)
     if mode == "infinite":
-        round_heading = f"\n(❁´◡`❁) Round {rounds_played + 1} (Infinite Mode) (❁´◡`❁)"
+        question_heading = f"\n(❁´◡`❁) Round {questions_completed + 1} (Infinite Mode) (❁´◡`❁)"
     else:
-        round_heading = f"\n (●'◡'●) Round {rounds_played + 1} of {num_rounds} (●'◡'●)"
+        question_heading = f"\n (●'◡'●) Round {questions_completed + 1} of {num_questions} (●'◡'●)"
 
-    print(round_heading)
+    print(question_heading)
     print()
 
 
@@ -152,20 +154,29 @@ while rounds_played < num_rounds:
     if user_answer == answer:
         print("Correct!")
         correct += 1
+        result = "Correct!"
     else:
         print(f"Incorrect! Answer: {answer}")
         incorrect += 1
+        result = "Incorrect!"
+
+    history_item = (
+        f"Question: {questions_completed + 1}\n"
+        f"{num1} {sign} {num2} = {user_answer} | {result}"
+    )
+
+    quiz_history.append(history_item)
 
 
-    rounds_played += 1
+    questions_completed += 1
 
-    # if users are in infinite mode, increase number of rounds!
+    # if users are in infinite mode, increase number of questions!
     if mode == "infinite":
-        num_rounds += 1
+        num_questions += 1
 
 # Game loop ends here
 
-if rounds_played >0:
+if questions_completed >0:
 
     # Asks if user wants to see their score
     want_stats =yes_no("\nDo you wanna see your score?")
@@ -175,10 +186,15 @@ if rounds_played >0:
         print("\n --- results ---")
         print(f"Score: {correct} / {correct + incorrect}")
         print(f"you got {correct} out of {correct + incorrect} correct")
-    if want_stats == "no":
-        print("Thanks for playing!")
-    else:
-        print("Thanks for playing!")
 
+        # Ask if they want to see game history
+    see_history = yes_no("\nDo you want to see your quiz history? ")
+
+    if see_history == "yes":
+        print("\n--- Quiz History ---")
+        for item in quiz_history:
+            print(item)
+
+    print("\nThanks for playing!")
 else:
     print("You left early? Didn't you want to play? Chicken 🐔")

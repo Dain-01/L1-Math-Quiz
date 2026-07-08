@@ -21,7 +21,7 @@ def instructions():
     print("""
 *** Instructions ***
 
-Choose either a certain amount of rounds or infinite mode!
+Choose either a certain amount of questions or infinite mode!
 
 Then solve the questions! 
 
@@ -30,7 +30,7 @@ They can range from;
 - Division
 - Subtraction
 - Addition 
-(You can also exit from Infinite mode using the word "Exit"!) 
+(You can also exit by typing "xxx") 
 Good luck!""")
 # Main routine
 
